@@ -1,0 +1,57 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main{
+  public static void main(String[] args) {
+        RollingDice adu = new RollingDice();
+        adu.rps();
+  }
+}
+public class RollingDice {
+    public void rps() {
+        System.out.println("WELCOME TO JANKEN \n" + "Let me explain the game briefly. \n"+ "1. Basically, the game is similar to the rock paper scissor, but we playing the roles of HUNTER, FOX, AND GOVERNMENT \n"
+        + "2. The HUNTER can be stopped by the GOVENRMENT \n" + "3. The GOVERNMENT is scared of the FOX \n" + "4. THE FOX can be killed only by the HUNTER");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("With 0 represents as HUNTER, 1 as GOVERNMENT, and 2 as FOX, choose a number from 0 to 2");
+        int pil  = sc.nextInt();
+        switch (pil) {
+            case 0:
+            System.out.println("You chose HUNTER.");
+            break;
+            case 1:
+            System.out.println("You chose GOVERNMENT.");
+            break;
+            case 2:
+            System.out.println("You chose FOX.");
+            break;
+            default:
+                System.out.println("You're out of this game.");
+        }
+        if(pil<3) {
+            System.out.println("Computer will show its choice.");
+            Random comp = new Random();
+            int choice = comp.nextInt(2);
+            switch (choice) {
+                case 0:
+                    System.out.println("Computer chose HUNTER.");
+                    break;
+                case 1:
+                    System.out.println("Computer chose GOVERNMENT.");
+                    break;
+                case 2:
+                    System.out.println("Computer chose FOX.");
+                    break;
+            }
+            if (pil == choice) {
+                System.out.println("We are TIE.");
+            } else if (pil == 1 && choice == 0 || pil == 0 && choice == 2 || pil == 2 && choice == 1) {
+                System.out.println("You WIN.");
+            } else if (pil == 0 && choice == 1 || pil == 1 && choice == 2 || pil == 2 && choice == 0) {
+                System.out.println("You LOSE.");
+            }
+        }
+
+        else {System.out.println("GAME IS OVER.");
+        }
+    }
+}
